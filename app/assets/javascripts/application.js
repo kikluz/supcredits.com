@@ -17,8 +17,6 @@
 //= require turbolinks
 //= require handlebars
 
-
-
 // TREE
 
 //= require_tree .
