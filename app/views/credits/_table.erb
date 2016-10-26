@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Create Date</th>
+      <th colspan="2" width="180"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% credits.each do |credit| %>
+      <tr>
+        <td><%= credit.amount %></td>
+        <td><%= credit.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+        <td><%= link_to 'Edit', edit_credit_path(credit) %></td>
+        <td><%= link_to 'Destroy', credit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

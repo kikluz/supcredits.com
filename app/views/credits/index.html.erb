@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Credits</h1>
+
+<%= render partial: 'table', locals: { credits: @credits } %>
+
+<br>
+
+<%= link_to 'New Credit', new_credit_path %>
