@@ -59,7 +59,9 @@
 .site-main {
   //@include section_padding(2em);
 }
-
+.module-container {
+ @include section_padding(2em);
+}
 .site-footer {
   @include section_padding(1em);
   border-top: 1px solid #eee;
@@ -99,5 +101,13 @@ h2 { font-size: 2em; }
     vertical-align: middle;
     height: 689px
   }
+}
+// eat is an open source semantic grid framework built with Sass
+.thumb-image {
+    @include outer-container;
+  .thumb-image-l { @include span-columns(4); }
+  .thumb-image-c { @include span-columns(4); }
+  .thumb-image-r { @include span-columns(4); }
+
 }
 
