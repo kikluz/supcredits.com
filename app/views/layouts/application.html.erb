@@ -12,10 +12,12 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
- <header class="site-header">
-  <nav class="site-nav container" role="navigation">
+<header class="site-header">
 
-       <%= link_to image_tag('logocafe.jpg'), '/', class: 'navbar-brand' %>
+</header>
+<nav class="site-nav container" role="navigation">
+
+      <%= link_to image_tag('logocafe.jpg'), '/', class: 'navbar-brand' %>
 
       <ul class="nav-links">
         <li><%= link_to 'Home', '/home' %>
@@ -36,19 +38,17 @@
       </div>
       <div class="mobile-menu"><i class="fa fa-navicon"></i></div>
     </nav>
-
-  </div>
-</header>
-
 <main class="site-main">
     <%= yield %>
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; <%= Time.now.year %>
-    Mountain High Coffee and Books is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to <a href="/">amazon.com </a>,<a href="/">endless.com </a>
-    <a href="/">smallparts.com </a> or <a href="/">myhabit.com</a></p>
+    <p>
+      18983 Hartmann Rd<br />
+      Hidden Valley Lake, CA 95467<br />
+      (707) 987-8086<br />
+    </p>
   </div>
 </footer>
 
