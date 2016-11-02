@@ -57,10 +57,12 @@
 }
 
 .site-header {
+  background-color: #d5dbaa;
   position: relative;
   @include clearfix;
   border-bottom: 1px solid black;
-  background-color: #d5dbaa;
+}
+.hero-unit {
   background-image: image-url('banner.png');
   background-repeat: no-repeat;
   background-position: center;

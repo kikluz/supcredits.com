@@ -31,6 +31,16 @@
   }
 
   .nav-links {
+    a:hover {
+    -moz-transition: all 275ms;
+    -o-transition: all 275ms;
+    -webkit-transition: all 275ms;
+    transition: all 275ms;
+    cursor: pointer;
+    text-decoration: none;
+    color: #53A530;
+    border-bottom: 1px solid #c61620;
+}
     margin:0;
     padding:0;
     height: 0;
@@ -74,7 +84,7 @@
           color: $blue;
 
           &:hover {
-            background: $medium-gray;
+            //background: $medium-gray;
             color: $white;
           }
         }

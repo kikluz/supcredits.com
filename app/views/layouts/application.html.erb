@@ -13,31 +13,34 @@
 <body class="<%= controller_name %> <%= action_name %>">
 
 <header class="site-header">
+  <nav class="site-nav container" role="navigation">
 
+    <%= link_to image_tag('logocafe.jpg'), '/', class: 'navbar-brand' %>
+
+    <ul class="nav-links">
+      <li><%= link_to 'Home', '/home' %>
+        <ul></ul>
+      </li>
+      <li><%= link_to 'Contact Us', '/contact' %>
+        <ul></ul>
+      </li>
+      <% if is_authorized? %>
+      <li><a href="#">Admin</a>
+        <ul>
+          <li><%= link_to 'Customers', customer_index_path %></li>
+          <li><%= link_to 'Logout', session_path, :method => :delete %></li>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="mobile-menu"><i class="fa fa-navicon"></i></div>
+</nav>
 </header>
-<nav class="site-nav container" role="navigation">
 
-      <%= link_to image_tag('logocafe.jpg'), '/', class: 'navbar-brand' %>
+<div class="hero-unit">
+</div>
 
-      <ul class="nav-links">
-        <li><%= link_to 'Home', '/home' %>
-          <ul></ul>
-        </li>
-        <li><%= link_to 'Contact Us', '/contact' %>
-          <ul></ul>
-        </li>
-        <% if is_authorized? %>
-        <li><a href="#">Admin</a>
-          <ul>
-            <li><%= link_to 'Customers', customer_index_path %></li>
-            <li><%= link_to 'Logout', session_path, :method => :delete %></li>
-          </ul>
-        </li>
-        <% end %>
-      </ul>
-      </div>
-      <div class="mobile-menu"><i class="fa fa-navicon"></i></div>
-    </nav>
 <main class="site-main">
     <%= yield %>
 </main>
