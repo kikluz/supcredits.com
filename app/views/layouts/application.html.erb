@@ -14,8 +14,8 @@
 
  <header class="site-header">
   <nav class="site-nav container" role="navigation">
-      <%= image_tag 'logocafe.jpg', class: 'navbar-brand' do %>
-      <% end %>
+
+       <%= link_to image_tag('logocafe.jpg'), '/', class: 'navbar-brand' %>
 
       <ul class="nav-links">
         <li><%= link_to 'Home', '/home' %>
@@ -44,7 +44,9 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; <%= Time.now.year %> <a href="/">middleman-loaded</a></p>
+    <p>&copy; <%= Time.now.year %>
+    Mountain High Coffee and Books is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to <a href="/">amazon.com </a>,<a href="/">endless.com </a>
+    <a href="/">smallparts.com </a> or <a href="/">myhabit.com</a></p>
   </div>
 </footer>
 
