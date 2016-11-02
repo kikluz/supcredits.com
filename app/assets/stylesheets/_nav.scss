@@ -14,6 +14,7 @@
   @include clearfix;
 
   .navbar-brand {
+    img {display:none;}
     display: block;
     line-height: 0;
     float: left;
@@ -38,8 +39,8 @@
     transition: all 275ms;
     cursor: pointer;
     text-decoration: none;
-    color: #53A530;
-    border-bottom: 1px solid #c61620;
+    color: #e62742;
+    //border-bottom: 1px solid #c61620;
 }
     margin:0;
     padding:0;
@@ -85,7 +86,7 @@
 
           &:hover {
             //background: $medium-gray;
-            color: $white;
+            color: #e62742;;
           }
         }
       }

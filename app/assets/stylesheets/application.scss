@@ -60,9 +60,10 @@
   background-color: #d5dbaa;
   position: relative;
   @include clearfix;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #4cb040;
 }
 .hero-unit {
+  background-color: #d5dbaa;
   background-image: image-url('banner.png');
   background-repeat: no-repeat;
   background-position: center;
