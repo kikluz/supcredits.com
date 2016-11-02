@@ -1,36 +1,39 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
-<h1>Customers</h1>
 
-<%= form_tag customer_index_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-    <%= link_to "Clear", customer_index_path %>
-  </p>
-<% end %>
+  <p id="notice"><%= notice %></p>
 
-<div class="module">
-  <p>We found <%= @results_count %> squareup customers</p>
-  <table>
-    <thead>
-      <tr>
-        <th>Customer Name</th>
-        <th>Customer's Phone</th>
-        <th>Credits</th>
-        <th>Adjust</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @customers.each do |c| %>
-      <tr>
-        <td><%= link_to "#{c['given_name']} #{c['family_name']}", customer_path(c['id']) %></td>
-        <td><%= c['phone_number'] %></td>
-        <td><%= count_credits c['id'] %></td>
-        <td><%= link_to 'adjust', new_credit_path(customer_id: c['id'])%></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+  <h1>Customers</h1>
+
+  <%= form_tag customer_index_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+      <%= link_to "Clear", customer_index_path %>
+    </p>
+  <% end %>
+
+  <div class="module">
+    <p>We found <%= @results_count %> squareup customers</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Customer's Phone</th>
+          <th>Credits</th>
+          <th>Adjust</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |c| %>
+        <tr>
+          <td><%= link_to "#{c['given_name']} #{c['family_name']}", customer_path(c['id']) %></td>
+          <td><%= c['phone_number'] %></td>
+          <td><%= count_credits c['id'] %></td>
+          <td><%= link_to 'adjust', new_credit_path(customer_id: c['id'])%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
 </div>

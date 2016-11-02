@@ -1,14 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @credit.amount %>
-</p>
+<div class="module-container">
+  <div class="container module">
 
-<p>
-  <strong>Customer:</strong>
-  <%= @credit.customer_id %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_credit_path(@credit) %> |
-<%= link_to 'Back', customer_index_path %>
+    <p>
+      <strong>Amount:</strong>
+      <%= @credit.amount %>
+    </p>
+
+    <p>
+      <strong>Customer:</strong>
+      <%= @credit.customer_id %>
+    </p>
+
+    <%= link_to 'Edit', edit_credit_path(@credit) %> |
+    <%= link_to 'Back', customer_index_path %>
+
+  </div>
+</div>

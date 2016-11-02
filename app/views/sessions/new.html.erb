@@ -1,2 +1,26 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+
+<div class="module-container">
+  <div class="container-narrow module">
+
+    <h1>
+      Customer Id
+    </h1>
+    <div>
+      <% if flash[:alert] %>
+      <p id="notice"><%= flash[:alert] %></p>
+      <% end %>
+      <%= form_tag sessions_path do %>
+      <fieldset>
+        <legend>What's the magic word?</legend>
+        <div>
+          <%= password_field_tag :password %>
+        </div>
+        <div>
+          <%= submit_tag "Login" %>
+        </div>
+      </fieldset>
+      <% end %>
+    </div>
+
+  </div>
+</div>

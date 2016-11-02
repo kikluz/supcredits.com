@@ -35,6 +35,16 @@
     padding:auto;
   }
 }
+.container-narrow {
+  max-width: 500px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0 1em;
+
+  @include media($medium-screen) {
+    padding:auto;
+  }
+}
 
 // ------------------------------------------------------------
 // Layout

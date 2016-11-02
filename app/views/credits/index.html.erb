@@ -1,9 +1,16 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Credits</h1>
+<div class="module-container">
+  <div class="container module">
 
-<%= render partial: 'table', locals: { credits: @credits } %>
+    <p id="notice"><%= notice %></p>
 
-<br>
+    <h1>Listing Credits</h1>
 
-<%= link_to 'New Credit', new_credit_path %>
+    <%= render partial: 'table', locals: { credits: @credits } %>
+
+    <br>
+
+    <%= link_to 'New Credit', new_credit_path %>
+
+  </div>
+</div>
