@@ -1,19 +1,21 @@
-<h1><%= @customer['given_name'] %> <%= @customer['family_name'] %></h1>
-<p>
-  <label>Contact</label>
-  <%= @customer['email_address'] %><br>
-  <%= @customer['phone_number'] %><br>
-</p>
-<p>
-  <label>Available Credits</label>
-  <%= number_to_currency @count_credits %>
-</p>
+<div class="container">
+  <h1><%= @customer['given_name'] %> <%= @customer['family_name'] %></h1>
+  <p>
+    <label>Contact</label>
+    <%= @customer['email_address'] %><br>
+    <%= @customer['phone_number'] %><br>
+  </p>
+  <p>
+    <label>Available Credits</label>
+    <%= number_to_currency @count_credits %>
+  </p>
 
-<%= link_to "Done", customer_index_path, class: 'button' %>
-<%= link_to 'Add Credit', new_credit_path(customer_id: @customer['id']), class: 'btn'%>
+  <%= link_to "Done", customer_index_path, class: 'button' %>
+  <%= link_to 'Add Credit', new_credit_path(customer_id: @customer['id']), class: 'btn'%>
 
-<div class="module">
-  <h2>Credit Transaction History</h2>
+  <div class="module">
+    <h2>Credit Transaction History</h2>
 
-  <%= render partial: 'credits/table', locals: { credits: @credits } %>
+    <%= render partial: 'credits/table', locals: { credits: @credits } %>
+  </div>
 </div>

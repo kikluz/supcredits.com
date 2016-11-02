@@ -14,8 +14,7 @@
 
  <header class="site-header">
   <nav class="site-nav container" role="navigation">
-      <%= link_to '/', class: 'navbar-brand' do %>
-        Coffee Credits
+      <%= image_tag 'logocafe.jpg', class: 'navbar-brand' do %>
       <% end %>
 
       <ul class="nav-links">
@@ -34,16 +33,13 @@
       </ul>
       </div>
       <div class="mobile-menu"><i class="fa fa-navicon"></i></div>
-
     </nav>
 
   </div>
 </header>
 
 <main class="site-main">
-  <div class="container module">
     <%= yield %>
-  </div>
 </main>
 
 <footer class="site-footer">

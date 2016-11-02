@@ -57,7 +57,7 @@
 }
 
 .site-main {
-  @include section_padding(2em);
+  //@include section_padding(2em);
 }
 
 .site-footer {
@@ -80,3 +80,22 @@ h2 { font-size: 2em; }
 
 // undo _form scaffold
 .field br { display:none;}
+
+
+// testing image
+.hero {
+  background: image-url('mountaincoffe.jpg') no-repeat center center; // link to /assets/images/texture.png
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: table;
+  width: 100%;
+  .hero-container {
+    display: table-cell;
+
+    vertical-align: middle;
+    height: 689px
+  }
+}
+
