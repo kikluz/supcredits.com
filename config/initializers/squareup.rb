@@ -15,5 +15,4 @@ else
 
   # grab hash for this environment
   SQUAREUP_CONFIG = hash[Rails.env]
-
 end
