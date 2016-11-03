@@ -128,3 +128,13 @@ h2 { font-size: 2em; }
 
 }
 
+// ------------------------------------------------------------
+// Contact page style
+// ------------------------------------------------------------
+
+.store-section {
+    @include outer-container;
+  .contact-location-hvl { @include span-columns(6); }
+  .contact-location-cm { @include span-columns(6); }
+
+}

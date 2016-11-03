@@ -76,9 +76,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  AWS::S3::Base.establish_connection!(
-    :SQUAREUP_CONFIG = ENV[SQUAREUP_CONFIG]
-  )
->>>>>>> tried to add add square up config files to production env
 end

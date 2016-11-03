@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc   # bundle exec rake doc:rails generates the
 gem 'rest-client'   # for accessing squareup
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
