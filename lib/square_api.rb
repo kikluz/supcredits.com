@@ -1,7 +1,7 @@
 class SquareApi
 
   def initialize()
-    @headers = {:Authorization => SQUAREUP_CONFIG['auth'], accept: :json}
+    @headers = {:Authorization => SQUAREUP_CONFIG[:auth], accept: :json}
   end
 
   def get_squareup_customer(customer_id)
@@ -13,7 +13,7 @@ class SquareApi
 
   def get_squareup_customers()
     self.rails_error_handler do
-      headers = {:Authorization => SQUAREUP_CONFIG['auth'], accept: :json}
+      headers = {:Authorization => SQUAREUP_CONFIG[:auth], accept: :json}
       response = RestClient.get 'https://connect.squareup.com/v2/customers', @headers
       return JSON.parse(response)['customers']
     end
