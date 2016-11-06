@@ -57,10 +57,10 @@
 }
 
 .site-header {
-  background-color: #d5dbaa;
+  background-color: #48595b;
   position: relative;
   @include clearfix;
-  border-bottom: 1px solid #4cb040;
+  border-bottom: 1px solid #570804;
 }
 .hero-unit {
   background-color: #d5dbaa;
@@ -91,11 +91,15 @@
 h1, h2, h3,
 h4, h5, h6 {
   line-height: 1; // Set line-height smaller on larger fonts
-  color: #006699;
+  font-family:Cabin Regular;
 }
 
-h1 { font-size: 3em; }
+h1 { font-size: 3em;}
 h2 { font-size: 2em; }
+blockquote {
+  font-size: 18px;
+  line-height: 32px;
+}
 
 // undo _form scaffold
 .field br { display:none;}
@@ -137,4 +141,10 @@ h2 { font-size: 2em; }
   .contact-location-hvl { @include span-columns(6); }
   .contact-location-cm { @include span-columns(6); }
 
+}
+
+.welcome-panel  {
+  @include outer-container;
+  header { @include span-columns(5); }
+  section { @include span-columns(7); }
 }
