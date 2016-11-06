@@ -71,10 +71,10 @@
 }
 
 .site-main {
-  //@include section_padding(2em);
+//@include section_padding(2em);
 }
 .module-container {
- @include section_padding(2em);
+  @include section_padding(2em);
 }
 .site-footer {
   @include section_padding(4  em);
@@ -97,8 +97,14 @@ h4, h5, h6 {
 h1 { font-size: 3em;}
 h2 { font-size: 2em; }
 blockquote {
-  font-size: 18px;
-  line-height: 32px;
+  padding: 100px;
+  font-family: "Lato";
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #303030;
+  display: block;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
 }
 p {font-family: '__Merel_5';}
 
@@ -126,7 +132,7 @@ p {font-family: '__Merel_5';}
 }
 // eat is an open source semantic grid framework built with Sass
 .thumb-image {
-    @include outer-container;
+  @include outer-container;
   .thumb-image-l { @include span-columns(4); }
   .thumb-image-c { @include span-columns(4); }
   .thumb-image-r { @include span-columns(4); }
@@ -138,7 +144,7 @@ p {font-family: '__Merel_5';}
 // ------------------------------------------------------------
 
 .store-section {
-    @include outer-container;
+  @include outer-container;
   .contact-location-hvl { @include span-columns(6); }
   .contact-location-cm { @include span-columns(6); }
 
