@@ -139,16 +139,15 @@ p {font-family: '__Merel_5';}
 .thumb-image {
   @include outer-container;
   text-align: center;
-  @include media($medium-screen) {
-    .thumb-image-l {
-      @include span-columns(4);
-
-      i {
+  i {
         display: block;
         margin: auto;
         width: 40%;
         padding: 30px;
       }
+  @include media($medium-screen) {
+    .thumb-image-l {
+      @include span-columns(4);
     }
     .thumb-image-c { @include span-columns(4); }
     .thumb-image-r { @include span-columns(4); }
