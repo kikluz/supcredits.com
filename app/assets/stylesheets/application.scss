@@ -93,9 +93,14 @@ h4, h5, h6 {
   line-height: 1; // Set line-height smaller on larger fonts
   font-family:Cabin Regular;
 }
+a {
+  font-family: "PT Sans Narrow";
+  font-weight: normal;
+}
 
 h1 { font-size: 3em;}
 h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
 blockquote {
   padding: 100px;
   font-family: "Lato";
@@ -133,10 +138,21 @@ p {font-family: '__Merel_5';}
 // eat is an open source semantic grid framework built with Sass
 .thumb-image {
   @include outer-container;
-  .thumb-image-l { @include span-columns(4); }
-  .thumb-image-c { @include span-columns(4); }
-  .thumb-image-r { @include span-columns(4); }
+  text-align: center;
+  @include media($medium-screen) {
+    .thumb-image-l {
+      @include span-columns(4);
 
+      i {
+        display: block;
+        margin: auto;
+        width: 40%;
+        padding: 30px;
+      }
+    }
+    .thumb-image-c { @include span-columns(4); }
+    .thumb-image-r { @include span-columns(4); }
+  }
 }
 
 // ------------------------------------------------------------
@@ -152,6 +168,12 @@ p {font-family: '__Merel_5';}
 
 .welcome-panel  {
   @include outer-container;
-  header { @include span-columns(5); }
+
+  header {
+    @include span-columns(5);
+    img {
+      border-radius: 10px;
+    }
+  }
   section { @include span-columns(7); }
 }
