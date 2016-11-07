@@ -25,9 +25,13 @@
           <ul></ul>
         </li>
         <% if is_authorized? %>
-        <li><a href="#">Admin</a>
+        <li>
+          <i class="fa fa-angle-double-right"></i>
+          <a href="#">Admin</a>
           <ul>
-            <li><%= link_to 'Customers', customer_index_path %></li>
+            <li>
+              <%= link_to 'Customers', customer_index_path %>
+              </li>
             <li><%= link_to 'Logout', session_path, :method => :delete %></li>
           </ul>
         </li>
