@@ -97,6 +97,9 @@ a {
   font-family: "PT Sans Narrow";
   font-weight: normal;
 }
+p {
+  font-family: Cabin;
+}
 
 h1 { font-size: 3em;}
 h2 { font-size: 2em; }
@@ -170,13 +173,15 @@ p {font-family: '__Merel_5';}
 }
 
 .welcome-panel  {
-  @include outer-container;
+    @include media($medium-screen) {
+    @include outer-container;
 
-  header {
-    @include span-columns(5);
-    img {
-      border-radius: 10px;
+    header {
+      @include span-columns(5);
+      img {
+        border-radius: 10px;
+      }
     }
+    section { @include span-columns(7); }
   }
-  section { @include span-columns(7); }
 }
