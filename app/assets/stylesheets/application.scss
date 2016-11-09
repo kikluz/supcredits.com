@@ -112,7 +112,6 @@ blockquote {
   padding: 100px;
 }
   font-family: "Lato";
-  font-weight: bold;
   text-transform: uppercase;
   color: #303030;
   display: block;
@@ -156,10 +155,9 @@ p {font-family: '__Merel_5';}
       }
   @include media($medium-screen) {
     .thumb-image-l {
-      @include span-columns(4);
+      @include span-columns(6);
     }
-    .thumb-image-c { @include span-columns(4); }
-    .thumb-image-r { @include span-columns(4); }
+    .thumb-image-c { @include span-columns(6); }
   }
 }
 
@@ -167,10 +165,16 @@ p {font-family: '__Merel_5';}
 // Contact page style
 // ------------------------------------------------------------
 
-.store-section {
+.contact-section {
   @include outer-container;
-  .contact-location-hvl { @include span-columns(6); }
-  .contact-location-cm { @include span-columns(6); }
+  .contact-section-r { @include span-columns(6); }
+  .contact-location-l {
+    @include span-columns(6);
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
 
 }
 
