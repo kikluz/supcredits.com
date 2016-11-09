@@ -107,6 +107,8 @@ h3 { font-size: 1.5em; }
 blockquote {
   padding: 12px;
   @include media($medium-screen) {
+  // Only on big screen
+  text-align: center;
   padding: 100px;
 }
   font-family: "Lato";
