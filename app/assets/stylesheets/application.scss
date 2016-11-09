@@ -155,9 +155,16 @@ p {font-family: '__Merel_5';}
       }
   @include media($medium-screen) {
     .thumb-image-l {
+        border-right: 1px solid #DCDCDC;
+        border-left: 1px solid #DCDCDC;
+        padding: 18px;
       @include span-columns(6);
     }
-    .thumb-image-r { @include span-columns(6); }
+    .thumb-image-r {
+      @include span-columns(6);
+      border-right: 1px solid #DCDCDC;
+        border-left: 1px solid #DCDCDC;
+    }
   }
 }
 
