@@ -157,7 +157,7 @@ p {font-family: '__Merel_5';}
     .thumb-image-l {
       @include span-columns(6);
     }
-    .thumb-image-c { @include span-columns(6); }
+    .thumb-image-r { @include span-columns(6); }
   }
 }
 
@@ -167,7 +167,9 @@ p {font-family: '__Merel_5';}
 
 .contact-section {
   @include outer-container;
-  .contact-section-r { @include span-columns(6); }
+  .contact-section-r {
+    @include span-columns(6);
+  }
   .contact-location-l {
     @include span-columns(6);
     img {
