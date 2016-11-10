@@ -196,11 +196,12 @@ p {font-family: '__Merel_5';}
 // ------------------------------------------------------------
 
 .contact-section {
+  text-align: center;
+  @include media($medium-screen) {
   @include outer-container;
   h2 {text-align: center;}
   .contact-section-r {
     @include span-columns(6);
-    text-align: center;
   }
   .contact-location-l {
     @include span-columns(6);
@@ -209,7 +210,7 @@ p {font-family: '__Merel_5';}
       height: auto;
     }
   }
-
+}
 }
 
 .welcome-panel  {
