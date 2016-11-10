@@ -143,10 +143,34 @@ p {font-family: '__Merel_5';}
     height: 300px
   }
 }
+// ------------------------------------------------------------
+// Panel welcome with image
+// ------------------------------------------------------------
+
+.welcome-panel  {
+    @include media($medium-screen) {
+    @include outer-container;
+
+    header {
+      @include span-columns(5);
+      img {
+        border-radius: 10px;
+      }
+    }
+    section { @include span-columns(7); }
+  }
+}
+.bg-wrapper {
+  background: #d7d9a7;
+}
+
+
+
 // eat is an open source semantic grid framework built with Sass
 .thumb-image {
   @include outer-container;
   text-align: center;
+  padding: 2em;
   i {
         display: block;
         margin: auto;
@@ -157,7 +181,6 @@ p {font-family: '__Merel_5';}
     .thumb-image-l {
         border-right: 1px solid #DCDCDC;
         border-left: 1px solid #DCDCDC;
-        padding: 18px;
       @include span-columns(6);
     }
     .thumb-image-r {
@@ -174,8 +197,10 @@ p {font-family: '__Merel_5';}
 
 .contact-section {
   @include outer-container;
+  h2 {text-align: center;}
   .contact-section-r {
     @include span-columns(6);
+    text-align: center;
   }
   .contact-location-l {
     @include span-columns(6);
@@ -192,11 +217,11 @@ p {font-family: '__Merel_5';}
     @include outer-container;
 
     header {
-      @include span-columns(5);
+      @include span-columns(7);
       img {
         border-radius: 10px;
       }
     }
-    section { @include span-columns(7); }
+    section { @include span-columns(5); }
   }
 }
