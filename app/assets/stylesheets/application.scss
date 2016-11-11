@@ -20,6 +20,12 @@
 // Site
 @import "nav";
 
+// for responsive design
+img {
+  display: block;
+  max-width: 100%;
+}
+
 // TODO: include animate.css from Bower
 .module {
   padding-top: 2em;
@@ -153,13 +159,27 @@ p {font-family: '__Merel_5';}
 // basic panel (no neat)
 .basic-panel  {
   @include clearfix; // clear floats for columns
+  position: relative;
+
+
+  @include media($medium-screen) {
+
+    // most set explicit height to center vert
+    &.basic-panel-coffee {
+      height: 266px;
+    }
+    &.basic-panel-contact {
+      height: 400px;
+    }
+  }
 
   // section tag (no mobile layout)
   section {
 
     // images
     img {
-      width:100%;
+      max-width:100%;
+      max-height:100%;
       margin-bottom: 2em;
     }
 
@@ -180,11 +200,16 @@ p {font-family: '__Merel_5';}
       width: 50%;
       float: left;
 
+      &.vert {
+        // vert center
+        position: relative;
+        transform: translateY(-50%);
+        top: 50%;
+      }
+
       // pad every other item
       &:nth-child(2) {
         padding-left: 2em;
-
-        padding-top: 3em;
       }
       img {
         margin:0;
@@ -194,86 +219,48 @@ p {font-family: '__Merel_5';}
 
 }
 
-.welcome-panel  {
-  @include media($medium-screen) {
-    @include outer-container;
-
-    header {
-      @include span-columns(7);
-      img {
-        border-radius: 10px;
-      }
-    }
-    section { @include span-columns(5); }
-  }
-
-  @include media($large-screen) {
-    @include outer-container;
-
-    .welcome-image {
-      @include span-columns(5);
-      img {
-        border-radius: 10px;
-      }
-    }
-    .welcome-quote {
-      @include span-columns(7);
-      padding-top: 79px;
-    }
-  }
-}
-
 .bg-wrapper {
   padding: 3em 0;
   background: #d7d9a7;
 }
 
-
-
 // eat is an open source semantic grid framework built with Sass
-.thumb-image {
-  @include outer-container;
+.basic-plus-panel{
   text-align: center;
-  padding: 2em;
-  i {
-        display: block;
-        margin: auto;
-        width: 40%;
-        padding: 30px;
-      }
-  @include media($medium-screen) {
-    .thumb-image-l {
+
+  section {
+    min-height: 340px;
+
+    i {
+      display: block;
+      margin: auto;
+      width: 40%;
+      padding: 30px;
+    }
+
+    @include media($medium-screen) {
+      &:nth-child(odd) {
         border-right: 1px solid #DCDCDC;
         border-left: 1px solid #DCDCDC;
-      @include span-columns(6);
-    }
-    .thumb-image-r {
-      @include span-columns(6);
-      border-right: 1px solid #DCDCDC;
+        margin-right: .5em;
+        margin-left: -.5em;
+      }
+      &:nth-child(even) {
+        border-right: 1px solid #DCDCDC;
         border-left: 1px solid #DCDCDC;
+        margin-left: .5em;
+        margin-right: -.5em;
+      }
+
     }
   }
 }
 
 // ------------------------------------------------------------
-// Contact page style
+// Contact section style
 // ------------------------------------------------------------
 
-.contact-section {
+.panel-contact {
   text-align: center;
-  @include media($medium-screen) {
-  @include outer-container;
-  h2 {text-align: center;}
-  .contact-section-r {
-    @include span-columns(6);
-  }
-  .contact-location-l {
-    @include span-columns(6);
-    img {
-      max-width: 200px;
-      height: auto;
-    }
-  }
-}
 }
 
