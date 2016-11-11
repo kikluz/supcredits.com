@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
       # set session and let them in
       session[:auth_code] = true
-      redirect_to root_url(notice: 'Successfully Logged In.')
+      redirect_to customer_index_path(notice: 'Successfully Logged In.')
 
     else
 

@@ -70,12 +70,16 @@
   height:276px;
 }
 
-.site-main {
-//@include section_padding(2em);
-}
+.site-main {}
+
+// full bleed panels
 .container-wrapper {
-  @include section_padding(2em);
+  @include section_padding(3em);
+  &:nth-child(2){
+    background-color: #eee;
+  }
 }
+
 .site-footer {
   @include section_padding(4  em);
   border-top: 1px solid darken(#eee, 20);
@@ -104,20 +108,19 @@ p {
 h1 { font-size: 3em;}
 h2 { font-size: 2em; }
 h3 { font-size: 1.5em; }
-blockquote {
-  padding: 12px;
+
+.tagline {
+  font-size: 2em;
   @include media($medium-screen) {
-  // Only on big screen
-  text-align: center;
-  padding: 100px;
-}
+    // Only on big screen
+    text-align: center;
+    padding: 100px;
+  }
   font-family: "Lato";
-  text-transform: uppercase;
   color: #303030;
-  display: block;
   letter-spacing: 1px;
   text-rendering: optimizeLegibility;
-  background-color: #f3f3f3;
+  text-transform: uppercase;
 }
 p {font-family: '__Merel_5';}
 
@@ -147,20 +150,81 @@ p {font-family: '__Merel_5';}
 // Panel welcome with image
 // ------------------------------------------------------------
 
-.welcome-panel  {
+// basic panel (no neat)
+.basic-panel  {
+  @include clearfix; // clear floats for columns
+
+  // section tag (no mobile layout)
+  section {
+
+    // images
+    img {
+      width:100%;
+      margin-bottom: 2em;
+    }
+
+    // fonts
+    color: #444;
+    h1, h2 {
+      font-size: 1.5em;
+      color: black;
+      line-height: 1.2;
+      font-weight: bold;
+      color: #333;
+    }
+
+    // tablet & desktop
     @include media($medium-screen) {
+
+      // two columns
+      width: 50%;
+      float: left;
+
+      // pad every other item
+      &:nth-child(2) {
+        padding-left: 2em;
+
+        padding-top: 3em;
+      }
+      img {
+        margin:0;
+      }
+    }
+  }
+
+}
+
+.welcome-panel  {
+  @include media($medium-screen) {
     @include outer-container;
 
     header {
+      @include span-columns(7);
+      img {
+        border-radius: 10px;
+      }
+    }
+    section { @include span-columns(5); }
+  }
+
+  @include media($large-screen) {
+    @include outer-container;
+
+    .welcome-image {
       @include span-columns(5);
       img {
         border-radius: 10px;
       }
     }
-    section { @include span-columns(7); }
+    .welcome-quote {
+      @include span-columns(7);
+      padding-top: 79px;
+    }
   }
 }
+
 .bg-wrapper {
+  padding: 3em 0;
   background: #d7d9a7;
 }
 
@@ -213,16 +277,3 @@ p {font-family: '__Merel_5';}
 }
 }
 
-.welcome-panel  {
-    @include media($medium-screen) {
-    @include outer-container;
-
-    header {
-      @include span-columns(7);
-      img {
-        border-radius: 10px;
-      }
-    }
-    section { @include span-columns(5); }
-  }
-}
