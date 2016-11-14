@@ -81,7 +81,7 @@ img {
 // full bleed panels
 .container-wrapper {
   @include section_padding(3em);
-  &:nth-child(2){
+  &:nth-child(even){
     background-color: #eee;
   }
 }
@@ -89,7 +89,8 @@ img {
 .site-footer {
   @include section_padding(4  em);
   border-top: 1px solid darken(#eee, 20);
-  font-size: 12px;
+  font-size: 15px;
+  padding: 1em 0;
   background-color: #eee;
   text-align: center;
 }
@@ -263,4 +264,3 @@ p {font-family: '__Merel_5';}
 .panel-contact {
   text-align: center;
 }
-
