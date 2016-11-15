@@ -272,25 +272,3 @@ p {font-family: '__Merel_5';}
     float: left;
   }
 }
-
-
-/// demo
-.intro {
-  min-height: 680px;
-  width: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  background-image: image-url('coffecup.png');
-}
-.intro-right {
-  border-left: 1px solid #DADADA;
-  min-height: 680px;
-  width: 50%;
-  overflow-y: hidden;
-}
