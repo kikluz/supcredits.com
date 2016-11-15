@@ -135,24 +135,7 @@ p {font-family: '__Merel_5';}
 .field br { display:none;}
 
 
-// testing image
-.hero {
-  background: image-url('banner-mountain.png') no-repeat center center; // link to /assets/images/texture.png
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: table;
-  width: 100%;
-  background-color: rgba(255,255,255,.2);
 
-  .hero-container {
-    display: table-cell;
-
-    vertical-align: middle;
-    height: 300px
-  }
-}
 // ------------------------------------------------------------
 // Panel welcome with image
 // ------------------------------------------------------------
@@ -272,3 +255,22 @@ p {font-family: '__Merel_5';}
     float: left;
   }
 }
+
+///// testing image
+.hero {
+  background-image: image-url('mountaincoffe.jpg');
+  -background-color: #d5dbaa;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height:600px;
+}
+.hero-opacity {
+
+  background-color: rgba(255,255,255,.2);
+}
+
+
