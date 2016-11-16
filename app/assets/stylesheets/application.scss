@@ -249,28 +249,29 @@ p {font-family: '__Merel_5';}
 }
 
 
-.basic-panel-hangout {
-  img {
-    width: 33%;
-    float: left;
-  }
-}
+
 
 ///// testing image
-.hero {
-  background-image: image-url('mountaincoffe.jpg');
-  -background-color: #d5dbaa;
+
+//// demo of two columns
+
+#sidebar-col-1 {
+  background-image: image-url('space-work.jpeg');
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  height:600px;
 }
-.hero-opacity {
-
-  background-color: rgba(255,255,255,.2);
+#sidebar-col-1, #sidebar-col-2 {
+    float: left;
+    width: 50%;
+    height: 500px;
+    display: block;
 }
 
 
+#sidebar-col-2 {
+  text-align: center;
+}
