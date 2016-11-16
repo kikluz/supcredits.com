@@ -251,27 +251,30 @@ p {font-family: '__Merel_5';}
 
 
 
-///// testing image
 
-//// demo of two columns
 
-#sidebar-col-1 {
-  background-image: image-url('space-work.jpeg');
-
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-#sidebar-col-1, #sidebar-col-2 {
-    float: left;
-    width: 50%;
-    height: 500px;
+// ------------------------------------------------------------
+// testing image home hero windows
+//  http://codepen.io/rickygipson/pen/OPeQOV
+// ------------------------------------------------------------
+.row_block {
+  @include media($medium-screen) {
     display: block;
+    width: 33%;
+    height: auto;
+    float: left;
+    padding: 3%;
+  }
+  .row_block img {
+    max-width: 100%;
+  }
+  .block_content{
+    padding: 1em;
+    line-height: 1.4em;
+    h3 {
+      letter-spacing: 1px;
+    }
+  }
 }
 
 
-#sidebar-col-2 {
-  text-align: center;
-}

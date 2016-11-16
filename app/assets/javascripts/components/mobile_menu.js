@@ -62,3 +62,18 @@ MobileMenu.fn.getSubMenus = function(){
 MobileMenu.fn.getTopLevelMenuItems = function(){
   return this.container.find('ul > li');
 };
+
+
+/// this is for two windows panel
+function UpdateSize(){
+      // Get the dimensions of the viewport
+      var width = $(window).width();
+      var height = $(window).height();
+
+  $('.homeHero').css('width', width);
+  $('.homeHero, .homeHero .heroLeft, .homeHero .heroRight').css('height', height);
+};
+
+
+$(document).ready(UpdateSize);    // When the page first loads
+$(window).resize(UpdateSize);     // When the browser changes size
