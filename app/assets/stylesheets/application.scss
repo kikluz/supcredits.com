@@ -68,12 +68,28 @@ img {
   @include clearfix;
   border-bottom: 1px solid #570804;
 }
-.hero-unit {
+
+.hero-unit-mobile {
+  @include media($medium-screen) {
+   display: none;
+  }
+  display: block;
   background-color: #d5dbaa;
-  background-image: image-url('banner-mountainh.png');
+  background-image: image-url('banner-mountainh_mobil.png');
   background-repeat: no-repeat;
   background-position: center;
-  height:276px;
+  height:145px;
+}
+.hero-unit {
+  display: none;
+  @include media($medium-screen) {
+    display: block;
+    background-color: #d5dbaa;
+    background-image: image-url('banner-mountainh.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height:276px;
+  }
 }
 
 .site-main {}
