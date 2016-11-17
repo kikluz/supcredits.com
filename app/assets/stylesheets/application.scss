@@ -133,11 +133,12 @@ h2 { font-size: 2em; }
 h3 { font-size: 1.5em; }
 
 .tagline {
-  font-size: 2em;
+  font-size: 1.2em;
   @include media($medium-screen) {
     // Only on big screen
     text-align: center;
     padding: 100px;
+    font-size: 2em;
   }
   font-family: "Lato";
   color: #303030;
