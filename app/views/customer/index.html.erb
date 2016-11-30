@@ -9,6 +9,7 @@
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search", :name => nil %>
       <%= link_to "Clear", customer_index_path, class: 'button' %>
+      <%= link_to "Add New", new_customer_path %>
     </p>
   <% end %>
 

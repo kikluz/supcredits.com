@@ -28,6 +28,22 @@ class CustomerController < ApplicationController
     @count_credits = @credits.sum(:amount)
   end
 
+  def new
+
+  end
+
+  def create
+
+    customer_hash = {
+      given_name: params[:first],
+      family_name: params[:last]
+    }
+
+    response = SquareApi.new.create_squareup_customer(customer_hash)
+    redirect_to customer_index_path
+
+  end
+
   private
 
 

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy', as: 'session'
 
   # resources
-  resources :customer, only: [:index, :show]
+  resources :customer, only: [:index, :show, :new, :create]
+  get "/:page" => "pages#show"
   resources :credits
 
   # static pages

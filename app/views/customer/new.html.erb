@@ -1,0 +1,23 @@
+
+<div class="container-wrapper">
+  <div class="container module">
+
+    <h1>New Customer</h1>
+    <%= form_tag '/customer', :method => :post  do %>
+      <fieldset>
+        <legend>First</legend>
+        <div>
+          <%= text_field_tag :first %>
+        </div>
+
+        <legend>Last</legend>
+        <div>
+          <%= text_field_tag :last %>
+        </div>
+        <div>
+          <%= submit_tag "Create" %>
+        </div>
+    </fieldset>
+    <% end %>
+  </div>
+</div>

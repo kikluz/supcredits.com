@@ -2,7 +2,7 @@
 
   <div class="container-narrow module">
     <h1>
-      Customer Id
+      Login
     </h1>
     <div>
       <% if flash[:alert] %>
@@ -10,7 +10,7 @@
       <% end %>
       <%= form_tag sessions_path do %>
       <fieldset>
-        <legend>What's the magic word?</legend>
+        <legend>Username</legend>
         <div>
           <%= password_field_tag :password %>
         </div>
