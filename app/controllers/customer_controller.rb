@@ -9,7 +9,7 @@ class CustomerController < ApplicationController
 
     # filter customers names
     unless params[:search].blank?
-      @customers = @customers.select {|c| c['given_name'].downcase.include? params[:search].downcase }
+      @customers = @customers.select {|c| c['given_name'].downcase.include? params[:search].downcase.strip }
     end
     # variable.count puts into variable
     @results_count = @customers.count

@@ -266,7 +266,7 @@ p {font-family: '__Merel_5';}
 }
 
 // ------------------------------------------------------------
-// testing image home hero windows
+//  image home hero windows
 // ------------------------------------------------------------
 .row_block {
   @include media($medium-screen) {
@@ -287,5 +287,15 @@ p {font-family: '__Merel_5';}
     }
   }
 }
-
+// ------------------------------------------------------------
+//  image home hero windows
+// ------------------------------------------------------------
+table {
+  /* Zebra Stripe Rows */
+  tr:nth-child(even) td { background: #e8e8e8; }
+  tr:nth-child(odd) td { background: #FDFDFD; }
+  a {
+    padding: 1em;
+  }
+}
 
