@@ -1,0 +1,168 @@
+(function() {
+
+  var camera, scene, renderer, material;
+
+  var fov = 70,
+    texture_placeholder,
+    isUserInteracting = false,
+    onMouseDownMouseX = 0,
+    onMouseDownMouseY = 0,
+    lon = 0,
+    onMouseDownLon = 0,
+    lat = 0,
+    onMouseDownLat = 0,
+    phi = 0,
+    theta = 0;
+
+  init();
+  animate();
+
+  function getTargetElement(){
+    return document.getElementById('hero-theta');
+  }
+
+  function init() {
+
+
+    // get target
+    var targetElement, mesh;
+    targetElement = getTargetElement();
+
+    // setup camera
+    camera = new THREE.PerspectiveCamera(fov, targetElement.offsetWidth / targetElement.offsetHeight, 1, 1100);
+    camera.target = new THREE.Vector3(0, 0, 0);
+
+    // setup scene
+    scene = new THREE.Scene();
+
+    // wrap image
+    var geometry = new THREE.SphereGeometry(500, 60, 40);
+    geometry.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
+    material = new THREE.MeshBasicMaterial({
+      map: THREE.ImageUtils.loadTexture('<%= asset_path('spherical.jpg') %>')
+    });
+    mesh = new THREE.Mesh(geometry, material);
+
+    // add to scene
+    scene.add(mesh);
+
+    // render
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize(targetElement.offsetWidth, targetElement.offsetHeight);
+    targetElement.appendChild(renderer.domElement);
+
+    document.addEventListener('mousedown', onDocumentMouseDown, false);
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+    document.addEventListener('mouseup', onDocumentMouseUp, false);
+
+    //document.addEventListener('mousewheel', onDocumentMouseWheel, false);
+    //document.addEventListener('DOMMouseScroll', onDocumentMouseWheel, false);
+
+    //
+
+    window.addEventListener('resize', onWindowResize, false);
+
+  }
+
+  function onWindowResize() {
+    var targetElement = getTargetElement();
+    camera.aspect = targetElement.offsetWidth / targetElement.offsetHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(targetElement.offsetWidth, targetElement.offsetHeight);
+  }
+
+  function onDocumentMouseDown(event) {
+
+    event.preventDefault();
+
+    isUserInteracting = true;
+
+    onPointerDownPointerX = event.clientX;
+    onPointerDownPointerY = event.clientY;
+
+    onPointerDownLon = lon;
+    onPointerDownLat = lat;
+
+  }
+
+  function onDocumentMouseMove(event) {
+
+    if (isUserInteracting) {
+
+      lon = (onPointerDownPointerX - event.clientX) * 0.1 + onPointerDownLon;
+      lat = (event.clientY - onPointerDownPointerY) * 0.1 + onPointerDownLat;
+
+    }
+  }
+
+  function onDocumentMouseUp(event) {
+    isUserInteracting = false;
+  }
+
+  function animate() {
+
+    requestAnimationFrame(animate);
+    render();
+
+  }
+
+  function render() {
+
+    lat = Math.max(-85, Math.min(85, lat));
+    phi = THREE.Math.degToRad(90 - lat);
+    theta = THREE.Math.degToRad(lon);
+
+    camera.target.x = 500 * Math.sin(phi) * Math.cos(theta);
+    camera.target.y = 500 * Math.cos(phi);
+    camera.target.z = 500 * Math.sin(phi) * Math.sin(theta);
+
+    camera.lookAt(camera.target);
+
+    /*
+        // distortion
+        camera.position.x = - camera.target.x;
+        camera.position.y = - camera.target.y;
+        camera.position.z = - camera.target.z;
+        */
+
+    renderer.render(scene, camera);
+
+  }
+
+  /**
+   *画像Drag＆Drop処理
+   */
+
+  function cancelEvent(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  function handllerDroppedFile(e) {
+    //単一ファイルの想定
+    var file = e.dataTransfer.files[0];
+
+    if (!file.type.match('image.*')) {
+      alert('imageファイルにしてね');
+      cancelEvent(e);
+    }
+
+    var img = document.createElement("img");
+    var fileReader = new FileReader();
+    fileReader.onload = function(e) {
+      img.src = e.target.result;
+      material.map = new THREE.Texture(img);
+      material.map.needsUpdate = true;
+    };
+    fileReader.readAsDataURL(file);
+    //デフォルトのイベントキャンセルしないとブラウザでイメージが表示されてしまう
+    cancelEvent(e);
+  }
+
+  var droppable = getTargetElement();
+  droppable.addEventListener('dradenter', cancelEvent);
+  droppable.addEventListener('dragover', cancelEvent);
+  droppable.addEventListener('drop', handllerDroppedFile);
+
+})();
+
