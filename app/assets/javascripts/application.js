@@ -16,7 +16,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require handlebars
-//= require threejs.js/three.min.js
+//= require threejs/three.min.js
 
 // TREE
 
