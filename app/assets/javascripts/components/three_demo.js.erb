@@ -51,17 +51,11 @@
     renderer.setSize(targetElement.offsetWidth, targetElement.offsetHeight);
     targetElement.appendChild(renderer.domElement);
 
+    // events
     document.addEventListener('mousedown', onDocumentMouseDown, false);
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     document.addEventListener('mouseup', onDocumentMouseUp, false);
-
-    //document.addEventListener('mousewheel', onDocumentMouseWheel, false);
-    //document.addEventListener('DOMMouseScroll', onDocumentMouseWheel, false);
-
-    //
-
     window.addEventListener('resize', onWindowResize, false);
-
   }
 
   function onWindowResize() {
@@ -72,26 +66,18 @@
   }
 
   function onDocumentMouseDown(event) {
-
     event.preventDefault();
-
     isUserInteracting = true;
-
     onPointerDownPointerX = event.clientX;
     onPointerDownPointerY = event.clientY;
-
     onPointerDownLon = lon;
     onPointerDownLat = lat;
-
   }
 
   function onDocumentMouseMove(event) {
-
     if (isUserInteracting) {
-
       lon = (onPointerDownPointerX - event.clientX) * 0.1 + onPointerDownLon;
       lat = (event.clientY - onPointerDownPointerY) * 0.1 + onPointerDownLat;
-
     }
   }
 
@@ -100,12 +86,11 @@
   }
 
   function animate() {
-
     requestAnimationFrame(animate);
     render();
-
   }
 
+  var rotation = 0;
   function render() {
 
     lat = Math.max(-85, Math.min(85, lat));
@@ -117,52 +102,17 @@
     camera.target.z = 500 * Math.sin(phi) * Math.sin(theta);
 
     camera.lookAt(camera.target);
-
-    /*
-        // distortion
-        camera.position.x = - camera.target.x;
-        camera.position.y = - camera.target.y;
-        camera.position.z = - camera.target.z;
-        */
-
+    
+    if (!isUserInteracting)
+    {
+      rotation += 0.02;
+      camera.rotation.x = 0;
+      camera.rotation.z = 0;
+      camera.rotation.y = rotation * Math.PI / 180;
+    }
     renderer.render(scene, camera);
 
   }
-
-  /**
-   *画像Drag＆Drop処理
-   */
-
-  function cancelEvent(e) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
-  function handllerDroppedFile(e) {
-    //単一ファイルの想定
-    var file = e.dataTransfer.files[0];
-
-    if (!file.type.match('image.*')) {
-      alert('imageファイルにしてね');
-      cancelEvent(e);
-    }
-
-    var img = document.createElement("img");
-    var fileReader = new FileReader();
-    fileReader.onload = function(e) {
-      img.src = e.target.result;
-      material.map = new THREE.Texture(img);
-      material.map.needsUpdate = true;
-    };
-    fileReader.readAsDataURL(file);
-    //デフォルトのイベントキャンセルしないとブラウザでイメージが表示されてしまう
-    cancelEvent(e);
-  }
-
-  var droppable = getTargetElement();
-  droppable.addEventListener('dradenter', cancelEvent);
-  droppable.addEventListener('dragover', cancelEvent);
-  droppable.addEventListener('drop', handllerDroppedFile);
 
 })();
 
