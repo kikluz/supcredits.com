@@ -66,12 +66,15 @@
   }
 
   function onDocumentMouseDown(event) {
-    event.preventDefault();
-    isUserInteracting = true;
-    onPointerDownPointerX = event.clientX;
-    onPointerDownPointerY = event.clientY;
-    onPointerDownLon = lon;
-    onPointerDownLat = lat;
+    if (underElement(getTargetElement(), event))
+    {
+      event.preventDefault();
+      isUserInteracting = true;
+      onPointerDownPointerX = event.clientX;
+      onPointerDownPointerY = event.clientY;
+      onPointerDownLon = lon;
+      onPointerDownLat = lat;
+    }
   }
 
   function onDocumentMouseMove(event) {
@@ -83,6 +86,17 @@
 
   function onDocumentMouseUp(event) {
     isUserInteracting = false;
+  }
+
+  function underElement(elem,e) {
+     var elemWidth = $(elem).width();
+     var elemHeight = $(elem).height();
+     var elemPosition = $(elem).offset();
+     var elemPosition2 = new Object;
+     elemPosition2.top = elemPosition.top + elemHeight;
+     elemPosition2.left = elemPosition.left + elemWidth;
+
+     return ((e.pageX > elemPosition.left && e.pageX < elemPosition2.left) && (e.pageY > elemPosition.top && e.pageY < elemPosition2.top))
   }
 
   function animate() {
