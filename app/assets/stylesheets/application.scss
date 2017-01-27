@@ -63,10 +63,11 @@ img {
 }
 
 .site-header {
-  background-color: #48595b;
+  a {color: white;}
+  background-color: #7C5852;
   position: relative;
   @include clearfix;
-  border-bottom: 1px solid #570804;
+  border-bottom: none;
 }
 
 .hero-unit-mobile {
@@ -98,7 +99,7 @@ img {
 .container-wrapper {
   @include section_padding(3em);
   &:nth-child(even){
-    background-color: #eee;
+    background-color: lighten(#7C5852, 50%);
   }
 }
 
@@ -107,8 +108,9 @@ img {
   border-top: 1px solid darken(#eee, 20);
   font-size: 15px;
   padding: 1em 0;
-  background-color: #eee;
+  background-color: black;
   text-align: center;
+  color:white;
 }
 .footer-icon {
   margin-bottom: 10px;
@@ -135,16 +137,18 @@ p {
 }
 
 h1 { font-size: 3em;}
-h2 { font-size: 2em; }
+h2 { font-size: 3em; }
 h3 { font-size: 1.5em; }
 
 .tagline {
+  background-color: rgba(255,255,255,.5);
   font-size: 1.2em;
+  color:black;
   @include media($medium-screen) {
     // Only on big screen
     text-align: center;
-    padding: 100px;
     font-size: 2em;
+    font-weight: bold;
   }
   font-family: "Lato";
   color: #303030;
@@ -192,12 +196,15 @@ p {font-family: '__Merel_5';}
 
     // fonts
     color: #444;
-    h1, h2 {
+    h1 {
       font-size: 1.5em;
       color: black;
       line-height: 1.2;
       font-weight: bold;
       color: #333;
+    }
+    h2 {
+    margin-bottom: 10px;
     }
 
     // tablet & desktop
@@ -236,7 +243,6 @@ p {font-family: '__Merel_5';}
   text-align: center;
 
   section {
-    min-height: 340px;
 
     i {
       display: block;
@@ -247,14 +253,10 @@ p {font-family: '__Merel_5';}
 
     @include media($medium-screen) {
       &:nth-child(odd) {
-        border-right: 1px solid #DCDCDC;
-        border-left: 1px solid #DCDCDC;
         margin-right: .5em;
         margin-left: -.5em;
       }
       &:nth-child(even) {
-        border-right: 1px solid #DCDCDC;
-        border-left: 1px solid #DCDCDC;
         margin-left: .5em;
         margin-right: -.5em;
       }

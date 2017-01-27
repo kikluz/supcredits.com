@@ -15,8 +15,9 @@
   <header class="site-header">
     <nav class="site-nav container" role="navigation">
 
-      <%= link_to image_tag('logocafe.jpg'), '/', class: 'navbar-brand' %>
-
+      <%= link_to '/', class: 'navbar-brand' do %>
+      MOUNTAIN HIGH
+      <% end %>
       <ul class="nav-links">
         <li><%= link_to 'Home', '/home' %>
           <ul></ul>
@@ -68,6 +69,8 @@
       18983 Hartmann Rd<br />
       Hidden Valley Lake, CA 95467<br />
       <a href="tel:7079878086">707-987-8086</a><br />
+      <a href="mailto:mountain.high.coffee@gmail.com">mountain.high.coffee@gmail.com</a><br />
+      <a target="_blank" href="http://www.mountainhighcafe.com/images/stories/MountainHighApplication.pdf" title="Job Application">Job Application</a><br />
       <%= link_to 'login', new_session_path %>
     </p>
   </div>

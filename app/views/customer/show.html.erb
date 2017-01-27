@@ -3,13 +3,7 @@
 
     <h1><%= @customer['given_name'] %> <%= @customer['family_name'] %></h1>
     <p>
-      <label>Contact</label>
-      <%= @customer['email_address'] %><br>
-      <%= @customer['phone_number'] %><br>
-    </p>
-    <p>
-      <label>Available Credits</label>
-      <%= number_to_currency @count_credits %>
+      <h2><%= number_to_currency @count_credits %></h2>
     </p>
 
     <%= link_to "Done", customer_index_path, class: 'button' %>
